@@ -1073,37 +1073,54 @@
     });
 
     async function sendDm() {
-        const user = auth.currentUser;
-        if (!user || !activeChatId) return;
+    const user = auth.currentUser;
+    if (!user || !activeChatId) return;
 
-        const input = document.getElementById('dmInput');
-        const text  = input.value.trim();
-        if (!text) return;
+    const input = document.getElementById('dmInput');
+    const text  = input.value.trim();
+    if (!text) return;
 
-        input.value = '';
+    input.value = '';
 
-        const convRef = doc(db, "conversations", activeChatId);
-        const msgRef  = collection(db, "conversations", activeChatId, "messages");
+    const convRef = doc(db, "conversations", activeChatId);
 
-        try {
-            await addDoc(msgRef, {
-                text,
-                senderUid: user.uid,
-                senderName: user.displayName,
-                timestamp: serverTimestamp()
-            });
-
-            await updateDoc(convRef, {
-                lastMessage: text,
+    try {
+        // ✅ Always ensure the conversation doc exists first
+        const convSnap = await getDoc(convRef);
+        if (!convSnap.exists()) {
+            const peerDoc = await getDoc(doc(db, "users", activePeerUid));
+            const peerData = peerDoc.exists() ? peerDoc.data() : { name: 'Unknown', photo: '' };
+            await setDoc(convRef, {
+                participants: [user.uid, activePeerUid],
+                peerInfo: {
+                    [user.uid]:      { name: user.displayName, photo: user.photoURL || '' },
+                    [activePeerUid]: { name: peerData.name,    photo: peerData.photo || '' }
+                },
+                lastMessage: '',
                 lastMessageAt: serverTimestamp(),
-                [`unreadCount.${activePeerUid}`]: increment(1)
+                unreadCount: { [user.uid]: 0, [activePeerUid]: 0 }
             });
-        } catch (e) {
-            console.error("SEND FAILED:", e.code, e.message, e);
-            console.error("UNREAD RESET FAILED:", e.code, e.message, e);
-            alert("Send failed: " + e.message);
         }
+
+        // ✅ Now safe to add the message
+        await addDoc(collection(db, "conversations", activeChatId, "messages"), {
+            text,
+            senderUid:   user.uid,
+            senderName:  user.displayName,
+            timestamp:   serverTimestamp()
+        });
+
+        await updateDoc(convRef, {
+            lastMessage:   text,
+            lastMessageAt: serverTimestamp(),
+            [`unreadCount.${activePeerUid}`]: increment(1)
+        });
+
+    } catch (e) {
+        console.error("SEND FAILED:", e.code, e.message, e);
+        alert("Send failed: " + e.message);
     }
+}
 
     // ── Back button ──
     document.getElementById('chatBackBtn').onclick = () => {
