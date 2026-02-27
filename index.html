@@ -1008,7 +1008,9 @@
             try {
                 const peerDoc = await getDoc(doc(db, "users", peerUid));
                 if (peerDoc.exists()) peerData = peerDoc.data();
-            } catch(_) {}
+            } catch(e) {
+                console.error("CONV CREATE FAILED:", e.code, e.message, e);
+            }
 
             let myData = { name: user.displayName, photo: user.photoURL || '' };
 
@@ -1097,6 +1099,8 @@
                 [`unreadCount.${activePeerUid}`]: increment(1)
             });
         } catch (e) {
+            console.error("SEND FAILED:", e.code, e.message, e);
+            console.error("UNREAD RESET FAILED:", e.code, e.message, e);
             alert("Send failed: " + e.message);
         }
     }
