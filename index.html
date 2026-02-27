@@ -693,31 +693,8 @@
             document.getElementById('loggedOut').style.display   = 'block';
             document.getElementById('loggedIn').style.display    = 'none';
             document.getElementById('messageForm').style.display = 'none';
-
-            // ✅ Reset DM UI on logout
             if (convUnsub) { convUnsub(); convUnsub = null; }
-            if (msgUnsub)  { msgUnsub();  msgUnsub  = null; }
-
-            activeChatId    = null;
-            activePeerUid   = null;
-            activePeerName  = null;
-            activePeerPhoto = null;
-
-    // Reset conversation list
-            document.getElementById('convList').innerHTML =
-            `<div class="dm-empty">No conversations yet.<br>Start one with "+ New"!</div>`;
-
-    // Close chat view if open, show list panel
-            document.getElementById('dmChatView').classList.remove('open');
-            document.getElementById('dmListPanel').style.display = 'block';
-
-    // Switch back to Feed tab
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('[data-tab="feed"]').classList.add('active');
-            document.querySelectorAll('.tab-section').forEach(sec => {
-            sec.classList.toggle('hidden', sec.id !== 'tab-feed');
         }
-                                                          }
     });
 
     // ── PUBLISH ───────────────────────────────────────────────────────────
