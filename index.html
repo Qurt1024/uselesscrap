@@ -56,6 +56,44 @@
             font-family: 'Space Mono', monospace;
         }
 
+        /* TAB NAV */
+        .tab-nav {
+            width: 100%;
+            max-width: 520px;
+            display: flex;
+            gap: 4px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 9px 0;
+            border-radius: 7px;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .tab-btn:hover:not(.active) { color: var(--text); }
+
+        /* TAB SECTIONS */
+        .tab-section { width: 100%; display: contents; }
+        .tab-section.hidden { display: none; }
+
         .panel {
             width: 100%;
             max-width: 520px;
@@ -137,7 +175,7 @@
 
         #clearSearchBtn:hover { color: var(--text); border-color: #444; }
 
-        /* ── AUTH PANEL ── */
+        /* AUTH PANEL */
         .auth-bar {
             display: flex;
             align-items: center;
@@ -172,7 +210,6 @@
         }
 
         #loginBtn:hover { box-shadow: 0 0 14px rgba(255,255,255,0.1); }
-
         #loginBtn svg { flex-shrink: 0; }
 
         #logoutBtn {
@@ -185,7 +222,7 @@
 
         #logoutBtn:hover { background: var(--red-glow); border-color: var(--red); color: var(--red); }
 
-        /* ── POSTS ── */
+        /* POSTS */
         .post {
             width: 100%;
             max-width: 520px;
@@ -210,7 +247,6 @@
         .post-time { font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; white-space: nowrap; }
 
         .post-text { font-size: 14px; line-height: 1.55; margin: 10px 0 12px; color: var(--text); }
-
         .post-image { width: 100%; max-height: 300px; object-fit: cover; border-radius: 7px; margin-bottom: 12px; border: 1px solid var(--border); }
 
         .post-actions { display: flex; gap: 8px; }
@@ -237,7 +273,18 @@
 
         .delete-btn:hover { background: var(--red-glow); border-color: var(--red); color: var(--red); }
 
-        /* ── SEARCH NOTICE ── */
+        .dm-btn {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .dm-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* SEARCH NOTICE */
         .search-notice {
             width: 100%;
             max-width: 520px;
@@ -266,7 +313,6 @@
             padding: 30px 0;
         }
 
-        /* ── IMAGE URL ── */
         #imagePreview {
             margin-top: 8px;
             max-width: 100%;
@@ -275,6 +321,235 @@
             border: 1px solid var(--border);
             display: none;
             object-fit: cover;
+        }
+
+        /* ─── DM STYLES ─────────────────────────────────────────────── */
+
+        /* Conversation list */
+        .conv-list { display: flex; flex-direction: column; gap: 2px; }
+
+        .conv-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .conv-item:hover { background: #1e2028; border-color: var(--border); }
+        .conv-item.active { background: var(--accent-glow); border-color: var(--accent); }
+
+        .conv-avatar {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .conv-info { flex: 1; min-width: 0; }
+        .conv-name { font-weight: 600; font-size: 14px; }
+        .conv-preview { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        .conv-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+        .conv-time { font-size: 10px; color: var(--muted); font-family: 'Space Mono', monospace; }
+
+        .unread-badge {
+            background: var(--accent);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 1px 6px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        /* Chat window */
+        #dmChatView {
+            display: none;
+            width: 100%;
+            max-width: 520px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #dmChatView.open { display: flex; }
+
+        .chat-header {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-back {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 6px 10px;
+            font-size: 13px;
+            border-radius: 7px;
+        }
+
+        .chat-back:hover { color: var(--text); border-color: #444; }
+
+        .chat-peer-avatar {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .chat-peer-name { font-weight: 600; font-size: 15px; flex: 1; }
+
+        .chat-messages {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            min-height: 300px;
+            max-height: 420px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .msg-bubble {
+            max-width: 78%;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.5;
+            animation: fadeIn 0.2s ease;
+            word-break: break-word;
+        }
+
+        .msg-bubble.mine {
+            align-self: flex-end;
+            background: var(--accent);
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+
+        .msg-bubble.theirs {
+            align-self: flex-start;
+            background: #1e2028;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-bottom-left-radius: 4px;
+        }
+
+        .msg-meta {
+            font-size: 10px;
+            margin-top: 3px;
+            opacity: 0.6;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .msg-bubble.mine .msg-meta { text-align: right; }
+
+        .chat-input-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-input-row input {
+            margin: 0;
+            flex: 1;
+        }
+
+        #sendDmBtn {
+            background: var(--accent);
+            color: #fff;
+            padding: 11px 18px;
+            border-radius: 7px;
+            white-space: nowrap;
+        }
+
+        #sendDmBtn:hover:not(:disabled) { box-shadow: 0 0 14px var(--accent-glow); }
+
+        /* New DM modal overlay */
+        #dmModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #dmModal.open { display: flex; }
+
+        .modal-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .modal-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .modal-user-list { display: flex; flex-direction: column; gap: 4px; max-height: 280px; overflow-y: auto; }
+
+        .modal-user-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .modal-user-item:hover { background: #1e2028; border-color: var(--border); }
+
+        .modal-user-avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); object-fit: cover; }
+        .modal-user-name { font-size: 14px; font-weight: 600; }
+        .modal-user-email { font-size: 11px; color: var(--muted); }
+
+        #closeModal {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            align-self: flex-end;
+            padding: 8px 14px;
+            font-size: 12px;
+            border-radius: 7px;
+        }
+
+        #closeModal:hover { color: var(--text); }
+
+        .dm-empty {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            padding: 30px 0;
         }
     </style>
 </head>
@@ -288,14 +563,12 @@
 <!-- AUTH PANEL -->
 <div class="panel" id="authPanel">
     <div class="panel-title">Authentication</div>
-    <!-- Logged out state -->
     <div id="loggedOut">
         <button id="loginBtn">
             <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.35-8.16 2.35-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg>
             Войти через Google
         </button>
     </div>
-    <!-- Logged in state -->
     <div id="loggedIn" style="display:none;">
         <div class="auth-bar">
             <img id="userPhoto" class="user-avatar" src="" alt="Avatar">
@@ -305,46 +578,96 @@
     </div>
 </div>
 
-<!-- NEW ENTRY FORM — hidden until authenticated -->
-<div class="panel" id="messageForm" style="display:none;">
-    <div class="panel-title">New Entry</div>
-    <input type="text" id="name" placeholder="Profile name" readonly>
-    <input type="email" id="email" placeholder="Work email" readonly>
-    <input type="text" id="content" placeholder="What's on your mind?">
-
-    <!-- Image URL (Этап V) -->
-    <input type="url" id="imageUrl" placeholder="🖼 Image URL (optional)">
-    <img id="imagePreview" alt="Preview">
-
-    <div class="btn-row" style="margin-top:10px;">
-        <button id="mainBtn">↑ Publish to cloud</button>
-    </div>
+<!-- TAB NAVIGATION -->
+<div class="tab-nav">
+    <button class="tab-btn active" data-tab="feed">⌁ Feed</button>
+    <button class="tab-btn" data-tab="dms">✉ DMs</button>
 </div>
 
-<!-- SEARCH PANEL -->
-<div class="panel">
-    <div class="panel-title">Search by Name</div>
-    <input type="text" id="searchInput" placeholder="Enter exact name to search...">
-    <div class="btn-row">
-        <button id="searchBtn">⌕ Query Firestore</button>
-        <button id="clearSearchBtn">✕ Clear</button>
+<!-- ═══════════════ FEED TAB ═══════════════ -->
+<div id="tab-feed" class="tab-section">
+
+    <!-- NEW ENTRY FORM -->
+    <div class="panel" id="messageForm" style="display:none;">
+        <div class="panel-title">New Entry</div>
+        <input type="text" id="name" placeholder="Profile name" readonly>
+        <input type="email" id="email" placeholder="Work email" readonly>
+        <input type="text" id="content" placeholder="What's on your mind?">
+        <input type="url" id="imageUrl" placeholder="🖼 Image URL (optional)">
+        <img id="imagePreview" alt="Preview">
+        <div class="btn-row" style="margin-top:10px;">
+            <button id="mainBtn">↑ Publish to cloud</button>
+        </div>
     </div>
+
+    <!-- SEARCH PANEL -->
+    <div class="panel">
+        <div class="panel-title">Search by Name</div>
+        <input type="text" id="searchInput" placeholder="Enter exact name to search...">
+        <div class="btn-row">
+            <button id="searchBtn">⌕ Query Firestore</button>
+            <button id="clearSearchBtn">✕ Clear</button>
+        </div>
+    </div>
+
+    <div id="searchNotice"></div>
+    <div id="feed"></div>
+
 </div>
 
-<div id="searchNotice"></div>
-<div id="feed"></div>
+<!-- ═══════════════ DMS TAB ═══════════════ -->
+<div id="tab-dms" class="tab-section hidden">
+
+    <!-- Conversations list panel -->
+    <div class="panel" id="dmListPanel" style="width:100%;max-width:520px;">
+        <div class="panel-title" style="display:flex;align-items:center;justify-content:space-between;">
+            <span>Direct Messages</span>
+            <button id="newDmBtn" style="background:var(--accent);color:#fff;padding:5px 12px;font-size:11px;border-radius:6px;font-family:'Space Mono',monospace;letter-spacing:0.5px;">+ New</button>
+        </div>
+        <div id="convList" class="conv-list">
+            <div class="dm-empty">No conversations yet.<br>Start one with "+ New"!</div>
+        </div>
+    </div>
+
+    <!-- Chat window (shown when a convo is open) -->
+    <div id="dmChatView">
+        <div class="chat-header">
+            <button class="chat-back" id="chatBackBtn">← Back</button>
+            <img id="chatPeerAvatar" class="chat-peer-avatar" src="" alt="">
+            <div class="chat-peer-name" id="chatPeerName"></div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="dm-empty">Send the first message!</div>
+        </div>
+        <div class="chat-input-row">
+            <input type="text" id="dmInput" placeholder="Write a message...">
+            <button id="sendDmBtn">↑ Send</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- NEW DM MODAL — pick a user -->
+<div id="dmModal">
+    <div class="modal-box">
+        <div class="modal-title">Start New Conversation</div>
+        <div id="modalUserList" class="modal-user-list">
+            <div class="dm-empty">Loading users...</div>
+        </div>
+        <button id="closeModal">Cancel</button>
+    </div>
+</div>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
     import {
         getFirestore, collection, addDoc, query, orderBy, onSnapshot,
         serverTimestamp, updateDoc, doc, increment, deleteDoc,
-        where, getDocs
+        where, getDocs, getDoc, setDoc, limit
     } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
     import {
         getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-
 
     const firebaseConfig = {
         apiKey: "AIzaSyCaE6_Ny5QcgVYuKp_PZF0DueVZvREDz24",
@@ -356,14 +679,25 @@
     };
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db  = getFirestore(app);
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
+    // ── TAB LOGIC ──────────────────────────────────────────────────────────
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const target = btn.dataset.tab;
+            document.querySelectorAll('.tab-section').forEach(sec => {
+                sec.classList.toggle('hidden', sec.id !== `tab-${target}`);
+            });
+        });
+    });
 
-    // ── IMAGE URL PREVIEW ───────────────────────────────────────────────────
+    // ── IMAGE URL PREVIEW ─────────────────────────────────────────────────
     const imageUrlInput = document.getElementById('imageUrl');
-    const imagePreview = document.getElementById('imagePreview');
+    const imagePreview  = document.getElementById('imagePreview');
 
     imageUrlInput.addEventListener('input', () => {
         const url = imageUrlInput.value.trim();
@@ -376,38 +710,46 @@
         }
     });
 
-    // ── AUTH LOGIC ──────────────────────────────────────────────────────────
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const loggedOut = document.getElementById('loggedOut');
-    const loggedIn = document.getElementById('loggedIn');
+    // ── AUTH ──────────────────────────────────────────────────────────────
+    const loginBtn   = document.getElementById('loginBtn');
+    const logoutBtn  = document.getElementById('logoutBtn');
+    const loggedOut  = document.getElementById('loggedOut');
+    const loggedIn   = document.getElementById('loggedIn');
     const messageForm = document.getElementById('messageForm');
 
-    loginBtn.onclick = () => signInWithPopup(auth, provider).catch(e => alert("Login error: " + e.message));
+    loginBtn.onclick  = () => signInWithPopup(auth, provider).catch(e => alert("Login error: " + e.message));
     logoutBtn.onclick = () => signOut(auth);
 
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
         if (user) {
-            // Show user info
-            loggedOut.style.display = 'none';
-            loggedIn.style.display = 'block';
+            loggedOut.style.display  = 'none';
+            loggedIn.style.display   = 'block';
             messageForm.style.display = 'block';
 
             document.getElementById('userPhoto').src = user.photoURL || '';
             document.getElementById('userName').textContent = user.displayName;
-
-            // Pre-fill form with Google account info (readonly)
-            document.getElementById('name').value = user.displayName;
+            document.getElementById('name').value  = user.displayName;
             document.getElementById('email').value = user.email;
+
+            // Register / update user profile in Firestore
+            await setDoc(doc(db, "users", user.uid), {
+                uid:   user.uid,
+                name:  user.displayName,
+                email: user.email,
+                photo: user.photoURL || '',
+                lastSeen: serverTimestamp()
+            }, { merge: true });
+
+            startConversationListener(user.uid);
         } else {
-            // Hide form, show login button
-            loggedOut.style.display = 'block';
-            loggedIn.style.display = 'none';
+            loggedOut.style.display   = 'block';
+            loggedIn.style.display    = 'none';
             messageForm.style.display = 'none';
+            if (convUnsub) { convUnsub(); convUnsub = null; }
         }
     });
 
-    // ── LIKE / DELETE ──────────────────────────────────────────────────────
+    // ── LIKE / DELETE ─────────────────────────────────────────────────────
     window.processLike = async (id) => {
         try {
             await updateDoc(doc(db, "requests", id), { likes: increment(1) });
@@ -418,19 +760,17 @@
         if (!confirm("Delete this entry?")) return;
         try {
             await deleteDoc(doc(db, "requests", id));
-        } catch (e) {
-            alert("Delete failed: " + e.message);
-        }
+        } catch (e) { alert("Delete failed: " + e.message); }
     };
 
-    // ── SEARCH ─────────────────────────────────────────────────────────────
+    // ── SEARCH ────────────────────────────────────────────────────────────
     document.getElementById('searchBtn').onclick = async () => {
         const term = document.getElementById('searchInput').value.trim();
         if (!term) return;
 
         isSearchMode = true;
         const notice = document.getElementById('searchNotice');
-        const feed = document.getElementById('feed');
+        const feed   = document.getElementById('feed');
 
         feed.innerHTML = `<div class="empty">Searching...</div>`;
 
@@ -449,7 +789,6 @@
                 feed.innerHTML = `<div class="empty">No entries found for "${term}"</div>`;
                 return;
             }
-
             snapshot.forEach(d => renderPost(feed, d.id, d.data()));
         } catch (e) {
             feed.innerHTML = `<div class="empty">Query error: ${e.message}</div>`;
@@ -458,12 +797,12 @@
 
     document.getElementById('clearSearchBtn').onclick = () => {
         isSearchMode = false;
-        document.getElementById('searchInput').value = "";
+        document.getElementById('searchInput').value    = "";
         document.getElementById('searchNotice').innerHTML = "";
         startLiveFeed();
     };
 
-    // ── PUBLISH ─────────────────────────────────────────────────────────────
+    // ── PUBLISH ───────────────────────────────────────────────────────────
     document.getElementById('mainBtn').onclick = async () => {
         const user = auth.currentUser;
         if (!user) return alert("Войдите в аккаунт!");
@@ -499,16 +838,20 @@
         btn.textContent = '↑ Publish to cloud';
     };
 
-    // ── REAL-TIME FEED ──────────────────────────────────────────────────────
+    // ── FEED ──────────────────────────────────────────────────────────────
     function renderPost(container, id, data) {
         const div = document.createElement('div');
         div.className = 'post';
 
         const avatarSrc = data.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name || '?')}&background=5b6af0&color=fff`;
-        const timeStr = data.timestamp?.toDate().toLocaleTimeString() || '...';
-        const textHtml = data.text ? `<div class="post-text">${escapeHtml(data.text)}</div>` : '';
+        const timeStr   = data.timestamp?.toDate().toLocaleTimeString() || '...';
+        const textHtml  = data.text ? `<div class="post-text">${escapeHtml(data.text)}</div>` : '';
         const imageHtml = data.imageUrl
             ? `<img class="post-image" src="${data.imageUrl}" alt="attached image" loading="lazy">`
+            : '';
+
+        const dmAction = data.uid !== auth.currentUser?.uid
+            ? `<button class="dm-btn" onclick="openDmWithUser('${data.uid}','${escapeHtml(data.name)}','${escapeHtml(data.photo || '')}')">✉ DM</button>`
             : '';
 
         div.innerHTML = `
@@ -524,6 +867,7 @@
             ${imageHtml}
             <div class="post-actions">
                 <button class="like-btn" onclick="processLike('${id}')">👍 ${data.likes || 0}</button>
+                ${dmAction}
                 <button class="delete-btn" onclick="deleteEntry('${id}')">✕ delete</button>
             </div>
         `;
@@ -539,7 +883,7 @@
     }
 
     let isSearchMode = false;
-    let unsubscribe = null;
+    let unsubscribe  = null;
 
     function startLiveFeed() {
         if (unsubscribe) unsubscribe();
@@ -558,7 +902,268 @@
 
     startLiveFeed();
 
-    // Expose db for console testing
+    // ─────────────────────────────────────────────────────────────────────
+    //  DM SYSTEM
+    // ─────────────────────────────────────────────────────────────────────
+
+    let convUnsub      = null;   // real-time listener for conversation list
+    let msgUnsub       = null;   // real-time listener for messages in open chat
+    let activeChatId   = null;   // currently open conversation ID
+    let activePeerUid  = null;
+
+    // Build a deterministic conversation ID from two UIDs
+    function convId(uid1, uid2) {
+        return [uid1, uid2].sort().join('_');
+    }
+
+    // ── Open DM from a post's DM button ──
+    window.openDmWithUser = async (peerUid, peerName, peerPhoto) => {
+        const user = auth.currentUser;
+        if (!user) return alert("Войдите в аккаунт, чтобы написать сообщение.");
+        if (peerUid === user.uid) return alert("You can't DM yourself.");
+
+        // Switch to DMs tab
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector('[data-tab="dms"]').classList.add('active');
+        document.querySelectorAll('.tab-section').forEach(sec => {
+            sec.classList.toggle('hidden', sec.id !== 'tab-dms');
+        });
+
+        openChat(peerUid, peerName, peerPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(peerName)}&background=5b6af0&color=fff`);
+    };
+
+    // ── Conversation list listener ──
+    function startConversationListener(uid) {
+        if (convUnsub) convUnsub();
+        const q = query(
+            collection(db, "conversations"),
+            where("participants", "array-contains", uid),
+            orderBy("lastMessageAt", "desc")
+        );
+        convUnsub = onSnapshot(q, (snap) => {
+            renderConvList(snap, uid);
+        }, (err) => {
+            console.warn("Conv listener error:", err.message);
+        });
+    }
+
+    function renderConvList(snap, myUid) {
+        const convList = document.getElementById('convList');
+        convList.innerHTML = "";
+
+        if (snap.empty) {
+            convList.innerHTML = `<div class="dm-empty">No conversations yet.<br>Start one with "+ New"!</div>`;
+            return;
+        }
+
+        snap.forEach(d => {
+            const data    = d.data();
+            const peerUid = data.participants.find(p => p !== myUid);
+            const peers   = data.peerInfo || {};
+            const peer    = peers[peerUid] || {};
+            const avatar  = peer.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(peer.name || '?')}&background=5b6af0&color=fff`;
+            const timeStr = data.lastMessageAt?.toDate().toLocaleTimeString() || '';
+            const unread  = (data.unreadCount || {})[myUid] || 0;
+
+            const item = document.createElement('div');
+            item.className = 'conv-item' + (d.id === activeChatId ? ' active' : '');
+            item.innerHTML = `
+                <img class="conv-avatar" src="${avatar}" alt="">
+                <div class="conv-info">
+                    <div class="conv-name">${escapeHtml(peer.name || 'Unknown')}</div>
+                    <div class="conv-preview">${escapeHtml(data.lastMessage || '')}</div>
+                </div>
+                <div class="conv-meta">
+                    <span class="conv-time">${timeStr}</span>
+                    ${unread > 0 ? `<span class="unread-badge">${unread}</span>` : ''}
+                </div>
+            `;
+            item.onclick = () => openChat(peerUid, peer.name || 'Unknown', avatar, d.id);
+            convList.appendChild(item);
+        });
+    }
+
+    // ── Open a specific chat ──
+    async function openChat(peerUid, peerName, peerPhoto, cid) {
+        const user = auth.currentUser;
+        if (!user) return;
+
+        cid = cid || convId(user.uid, peerUid);
+        activeChatId  = cid;
+        activePeerUid = peerUid;
+
+        // Show chat view, hide list
+        document.getElementById('dmListPanel').style.display  = 'none';
+        document.getElementById('dmChatView').classList.add('open');
+
+        document.getElementById('chatPeerAvatar').src = peerPhoto;
+        document.getElementById('chatPeerName').textContent = peerName;
+
+        // Ensure conversation doc exists
+        const convRef = doc(db, "conversations", cid);
+        const convSnap = await getDoc(convRef);
+        if (!convSnap.exists()) {
+            // Fetch peer info from users collection
+            let peerData = { name: peerName, photo: peerPhoto };
+            try {
+                const peerDoc = await getDoc(doc(db, "users", peerUid));
+                if (peerDoc.exists()) peerData = peerDoc.data();
+            } catch(_) {}
+
+            let myData = { name: user.displayName, photo: user.photoURL || '' };
+
+            await setDoc(convRef, {
+                participants: [user.uid, peerUid],
+                peerInfo: {
+                    [user.uid]:  { name: myData.name,   photo: myData.photo },
+                    [peerUid]:   { name: peerData.name,  photo: peerData.photo || peerPhoto }
+                },
+                lastMessage: '',
+                lastMessageAt: serverTimestamp(),
+                unreadCount: { [user.uid]: 0, [peerUid]: 0 }
+            });
+        }
+
+        // Reset unread for me
+        try {
+            await updateDoc(convRef, { [`unreadCount.${user.uid}`]: 0 });
+        } catch(_) {}
+
+        // Listen to messages
+        if (msgUnsub) msgUnsub();
+        const msgQ = query(
+            collection(db, "conversations", cid, "messages"),
+            orderBy("timestamp", "asc")
+        );
+        msgUnsub = onSnapshot(msgQ, (snap) => renderMessages(snap, user.uid));
+    }
+
+    function renderMessages(snap, myUid) {
+        const container = document.getElementById('chatMessages');
+        container.innerHTML = "";
+
+        if (snap.empty) {
+            container.innerHTML = `<div class="dm-empty">Send the first message!</div>`;
+            return;
+        }
+
+        snap.forEach(d => {
+            const data   = d.data();
+            const isMine = data.senderUid === myUid;
+            const time   = data.timestamp?.toDate().toLocaleTimeString() || '';
+
+            const bubble = document.createElement('div');
+            bubble.className = `msg-bubble ${isMine ? 'mine' : 'theirs'}`;
+            bubble.innerHTML = `
+                ${escapeHtml(data.text)}
+                <div class="msg-meta">${time}</div>
+            `;
+            container.appendChild(bubble);
+        });
+
+        container.scrollTop = container.scrollHeight;
+    }
+
+    // ── Send a DM ──
+    document.getElementById('sendDmBtn').onclick = sendDm;
+    document.getElementById('dmInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendDm(); }
+    });
+
+    async function sendDm() {
+        const user = auth.currentUser;
+        if (!user || !activeChatId) return;
+
+        const input = document.getElementById('dmInput');
+        const text  = input.value.trim();
+        if (!text) return;
+
+        input.value = '';
+
+        const convRef = doc(db, "conversations", activeChatId);
+        const msgRef  = collection(db, "conversations", activeChatId, "messages");
+
+        try {
+            await addDoc(msgRef, {
+                text,
+                senderUid: user.uid,
+                senderName: user.displayName,
+                timestamp: serverTimestamp()
+            });
+
+            await updateDoc(convRef, {
+                lastMessage: text,
+                lastMessageAt: serverTimestamp(),
+                [`unreadCount.${activePeerUid}`]: increment(1)
+            });
+        } catch (e) {
+            alert("Send failed: " + e.message);
+        }
+    }
+
+    // ── Back button ──
+    document.getElementById('chatBackBtn').onclick = () => {
+        if (msgUnsub) { msgUnsub(); msgUnsub = null; }
+        activeChatId  = null;
+        activePeerUid = null;
+        document.getElementById('dmChatView').classList.remove('open');
+        document.getElementById('dmListPanel').style.display = 'block';
+    };
+
+    // ── New DM modal ──
+    document.getElementById('newDmBtn').onclick = async () => {
+        const user = auth.currentUser;
+        if (!user) return alert("Войдите в аккаунт!");
+
+        const modal    = document.getElementById('dmModal');
+        const listEl   = document.getElementById('modalUserList');
+        modal.classList.add('open');
+        listEl.innerHTML = `<div class="dm-empty">Loading...</div>`;
+
+        try {
+            const snap = await getDocs(query(collection(db, "users"), limit(50)));
+            listEl.innerHTML = "";
+            let count = 0;
+
+            snap.forEach(d => {
+                const u = d.data();
+                if (u.uid === user.uid) return;
+                count++;
+                const avatar = u.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(u.name || '?')}&background=5b6af0&color=fff`;
+                const item = document.createElement('div');
+                item.className = 'modal-user-item';
+                item.innerHTML = `
+                    <img class="modal-user-avatar" src="${avatar}" alt="">
+                    <div>
+                        <div class="modal-user-name">${escapeHtml(u.name || '—')}</div>
+                        <div class="modal-user-email">${escapeHtml(u.email || '')}</div>
+                    </div>
+                `;
+                item.onclick = () => {
+                    modal.classList.remove('open');
+                    openChat(u.uid, u.name || 'Unknown', avatar);
+                };
+                listEl.appendChild(item);
+            });
+
+            if (count === 0) {
+                listEl.innerHTML = `<div class="dm-empty">No other users found yet.</div>`;
+            }
+        } catch(e) {
+            listEl.innerHTML = `<div class="dm-empty">Error: ${e.message}</div>`;
+        }
+    };
+
+    document.getElementById('closeModal').onclick = () => {
+        document.getElementById('dmModal').classList.remove('open');
+    };
+
+    document.getElementById('dmModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('dmModal')) {
+            document.getElementById('dmModal').classList.remove('open');
+        }
+    });
+
     window.db = db;
 </script>
 </body>
