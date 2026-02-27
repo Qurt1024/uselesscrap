@@ -83,14 +83,9 @@
             transition: all 0.2s;
         }
 
-        .tab-btn.active {
-            background: var(--accent);
-            color: #fff;
-        }
-
+        .tab-btn.active { background: var(--accent); color: #fff; }
         .tab-btn:hover:not(.active) { color: var(--text); }
 
-        /* TAB SECTIONS */
         .tab-section { width: 100%; display: contents; }
         .tab-section.hidden { display: none; }
 
@@ -175,27 +170,17 @@
 
         #clearSearchBtn:hover { color: var(--text); border-color: #444; }
 
-        /* AUTH PANEL */
-        .auth-bar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+        /* AUTH */
+        .auth-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
         .user-avatar {
-            width: 36px;
-            height: 36px;
+            width: 36px; height: 36px;
             border-radius: 50%;
             border: 2px solid var(--accent);
             object-fit: cover;
         }
 
-        .user-name {
-            font-weight: 600;
-            font-size: 14px;
-            flex: 1;
-        }
+        .user-name { font-weight: 600; font-size: 14px; flex: 1; }
 
         #loginBtn {
             flex: 1;
@@ -230,7 +215,6 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 16px;
-            position: relative;
             animation: fadeIn 0.3s ease;
         }
 
@@ -245,11 +229,9 @@
         .post-name { font-weight: 600; font-size: 15px; }
         .post-email { font-size: 12px; color: var(--muted); }
         .post-time { font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; white-space: nowrap; }
-
-        .post-text { font-size: 14px; line-height: 1.55; margin: 10px 0 12px; color: var(--text); }
+        .post-text { font-size: 14px; line-height: 1.55; margin: 10px 0 12px; }
         .post-image { width: 100%; max-height: 300px; object-fit: cover; border-radius: 7px; margin-bottom: 12px; border: 1px solid var(--border); }
-
-        .post-actions { display: flex; gap: 8px; }
+        .post-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
         .like-btn {
             background: #1e2028;
@@ -284,7 +266,6 @@
 
         .dm-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* SEARCH NOTICE */
         .search-notice {
             width: 100%;
             max-width: 520px;
@@ -297,12 +278,7 @@
             gap: 6px;
         }
 
-        .search-notice .dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--green);
-            display: inline-block;
-        }
+        .search-notice .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; }
 
         .empty {
             width: 100%;
@@ -323,9 +299,7 @@
             object-fit: cover;
         }
 
-        /* ─── DM STYLES ─────────────────────────────────────────────── */
-
-        /* Conversation list */
+        /* ── DM STYLES ── */
         .conv-list { display: flex; flex-direction: column; gap: 2px; }
 
         .conv-item {
@@ -342,18 +316,10 @@
         .conv-item:hover { background: #1e2028; border-color: var(--border); }
         .conv-item.active { background: var(--accent-glow); border-color: var(--accent); }
 
-        .conv-avatar {
-            width: 38px; height: 38px;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
+        .conv-avatar { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); object-fit: cover; flex-shrink: 0; }
         .conv-info { flex: 1; min-width: 0; }
         .conv-name { font-weight: 600; font-size: 14px; }
         .conv-preview { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
         .conv-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
         .conv-time { font-size: 10px; color: var(--muted); font-family: 'Space Mono', monospace; }
 
@@ -368,7 +334,6 @@
             text-align: center;
         }
 
-        /* Chat window */
         #dmChatView {
             display: none;
             width: 100%;
@@ -400,13 +365,7 @@
 
         .chat-back:hover { color: var(--text); border-color: #444; }
 
-        .chat-peer-avatar {
-            width: 34px; height: 34px;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-            object-fit: cover;
-        }
-
+        .chat-peer-avatar { width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover; }
         .chat-peer-name { font-weight: 600; font-size: 15px; flex: 1; }
 
         .chat-messages {
@@ -451,24 +410,11 @@
             border-bottom-left-radius: 4px;
         }
 
-        .msg-meta {
-            font-size: 10px;
-            margin-top: 3px;
-            opacity: 0.6;
-            font-family: 'Space Mono', monospace;
-        }
-
+        .msg-meta { font-size: 10px; margin-top: 3px; opacity: 0.6; font-family: 'Space Mono', monospace; }
         .msg-bubble.mine .msg-meta { text-align: right; }
 
-        .chat-input-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        .chat-input-row input {
-            margin: 0;
-            flex: 1;
-        }
+        .chat-input-row { display: flex; gap: 8px; }
+        .chat-input-row input { margin: 0; flex: 1; }
 
         #sendDmBtn {
             background: var(--accent);
@@ -480,7 +426,6 @@
 
         #sendDmBtn:hover:not(:disabled) { box-shadow: 0 0 14px var(--accent-glow); }
 
-        /* New DM modal overlay */
         #dmModal {
             display: none;
             position: fixed;
@@ -545,12 +490,7 @@
 
         #closeModal:hover { color: var(--text); }
 
-        .dm-empty {
-            text-align: center;
-            color: var(--muted);
-            font-size: 13px;
-            padding: 30px 0;
-        }
+        .dm-empty { text-align: center; color: var(--muted); font-size: 13px; padding: 30px 0; }
     </style>
 </head>
 <body>
@@ -584,10 +524,9 @@
     <button class="tab-btn" data-tab="dms">✉ DMs</button>
 </div>
 
-<!-- ═══════════════ FEED TAB ═══════════════ -->
+<!-- FEED TAB -->
 <div id="tab-feed" class="tab-section">
 
-    <!-- NEW ENTRY FORM -->
     <div class="panel" id="messageForm" style="display:none;">
         <div class="panel-title">New Entry</div>
         <input type="text" id="name" placeholder="Profile name" readonly>
@@ -600,7 +539,6 @@
         </div>
     </div>
 
-    <!-- SEARCH PANEL -->
     <div class="panel">
         <div class="panel-title">Search by Name</div>
         <input type="text" id="searchInput" placeholder="Enter exact name to search...">
@@ -615,10 +553,9 @@
 
 </div>
 
-<!-- ═══════════════ DMS TAB ═══════════════ -->
+<!-- DMS TAB -->
 <div id="tab-dms" class="tab-section hidden">
 
-    <!-- Conversations list panel -->
     <div class="panel" id="dmListPanel" style="width:100%;max-width:520px;">
         <div class="panel-title" style="display:flex;align-items:center;justify-content:space-between;">
             <span>Direct Messages</span>
@@ -629,7 +566,6 @@
         </div>
     </div>
 
-    <!-- Chat window (shown when a convo is open) -->
     <div id="dmChatView">
         <div class="chat-header">
             <button class="chat-back" id="chatBackBtn">← Back</button>
@@ -647,7 +583,7 @@
 
 </div>
 
-<!-- NEW DM MODAL — pick a user -->
+<!-- NEW DM MODAL -->
 <div id="dmModal">
     <div class="modal-box">
         <div class="modal-title">Start New Conversation</div>
@@ -678,12 +614,29 @@
         appId: "1:1030872000635:web:01aae66f29933bb7009ade"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const db  = getFirestore(app);
-    const auth = getAuth(app);
+    const app      = initializeApp(firebaseConfig);
+    const db       = getFirestore(app);
+    const auth     = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    // ── TAB LOGIC ──────────────────────────────────────────────────────────
+    // ── HELPERS ───────────────────────────────────────────────────────────
+    function escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    function convId(uid1, uid2) {
+        return [uid1, uid2].sort().join('_');
+    }
+
+    function avatarUrl(name, photo) {
+        return photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(name || '?')}&background=5b6af0&color=fff`;
+    }
+
+    // ── TABS ──────────────────────────────────────────────────────────────
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -695,7 +648,7 @@
         });
     });
 
-    // ── IMAGE URL PREVIEW ─────────────────────────────────────────────────
+    // ── IMAGE PREVIEW ─────────────────────────────────────────────────────
     const imageUrlInput = document.getElementById('imageUrl');
     const imagePreview  = document.getElementById('imagePreview');
 
@@ -711,96 +664,38 @@
     });
 
     // ── AUTH ──────────────────────────────────────────────────────────────
-    const loginBtn   = document.getElementById('loginBtn');
-    const logoutBtn  = document.getElementById('logoutBtn');
-    const loggedOut  = document.getElementById('loggedOut');
-    const loggedIn   = document.getElementById('loggedIn');
-    const messageForm = document.getElementById('messageForm');
-
-    loginBtn.onclick  = () => signInWithPopup(auth, provider).catch(e => alert("Login error: " + e.message));
-    logoutBtn.onclick = () => signOut(auth);
+    document.getElementById('loginBtn').onclick  = () => signInWithPopup(auth, provider).catch(e => alert("Login error: " + e.message));
+    document.getElementById('logoutBtn').onclick = () => signOut(auth);
 
     onAuthStateChanged(auth, async (user) => {
         if (user) {
-            loggedOut.style.display  = 'none';
-            loggedIn.style.display   = 'block';
-            messageForm.style.display = 'block';
+            document.getElementById('loggedOut').style.display   = 'none';
+            document.getElementById('loggedIn').style.display    = 'block';
+            document.getElementById('messageForm').style.display = 'block';
+            document.getElementById('userPhoto').src             = user.photoURL || '';
+            document.getElementById('userName').textContent      = user.displayName;
+            document.getElementById('name').value                = user.displayName;
+            document.getElementById('email').value               = user.email;
 
-            document.getElementById('userPhoto').src = user.photoURL || '';
-            document.getElementById('userName').textContent = user.displayName;
-            document.getElementById('name').value  = user.displayName;
-            document.getElementById('email').value = user.email;
-
-            // Register / update user profile in Firestore
-            await setDoc(doc(db, "users", user.uid), {
-                uid:   user.uid,
-                name:  user.displayName,
-                email: user.email,
-                photo: user.photoURL || '',
-                lastSeen: serverTimestamp()
-            }, { merge: true });
+            // Register / refresh user profile
+            try {
+                await setDoc(doc(db, "users", user.uid), {
+                    uid:      user.uid,
+                    name:     user.displayName,
+                    email:    user.email,
+                    photo:    user.photoURL || '',
+                    lastSeen: serverTimestamp()
+                }, { merge: true });
+            } catch(e) { console.warn("Profile update failed:", e.message); }
 
             startConversationListener(user.uid);
         } else {
-            loggedOut.style.display   = 'block';
-            loggedIn.style.display    = 'none';
-            messageForm.style.display = 'none';
+            document.getElementById('loggedOut').style.display   = 'block';
+            document.getElementById('loggedIn').style.display    = 'none';
+            document.getElementById('messageForm').style.display = 'none';
             if (convUnsub) { convUnsub(); convUnsub = null; }
         }
     });
-
-    // ── LIKE / DELETE ─────────────────────────────────────────────────────
-    window.processLike = async (id) => {
-        try {
-            await updateDoc(doc(db, "requests", id), { likes: increment(1) });
-        } catch (e) { console.error("Like error:", e.message); }
-    };
-
-    window.deleteEntry = async (id) => {
-        if (!confirm("Delete this entry?")) return;
-        try {
-            await deleteDoc(doc(db, "requests", id));
-        } catch (e) { alert("Delete failed: " + e.message); }
-    };
-
-    // ── SEARCH ────────────────────────────────────────────────────────────
-    document.getElementById('searchBtn').onclick = async () => {
-        const term = document.getElementById('searchInput').value.trim();
-        if (!term) return;
-
-        isSearchMode = true;
-        const notice = document.getElementById('searchNotice');
-        const feed   = document.getElementById('feed');
-
-        feed.innerHTML = `<div class="empty">Searching...</div>`;
-
-        try {
-            const q = query(
-                collection(db, "requests"),
-                where("name", "==", term),
-                orderBy("timestamp", "desc")
-            );
-            const snapshot = await getDocs(q);
-
-            notice.innerHTML = `<span class="dot"></span> ${snapshot.size} result${snapshot.size !== 1 ? 's' : ''} for "<b>${term}</b>"`;
-            feed.innerHTML = "";
-
-            if (snapshot.empty) {
-                feed.innerHTML = `<div class="empty">No entries found for "${term}"</div>`;
-                return;
-            }
-            snapshot.forEach(d => renderPost(feed, d.id, d.data()));
-        } catch (e) {
-            feed.innerHTML = `<div class="empty">Query error: ${e.message}</div>`;
-        }
-    };
-
-    document.getElementById('clearSearchBtn').onclick = () => {
-        isSearchMode = false;
-        document.getElementById('searchInput').value    = "";
-        document.getElementById('searchNotice').innerHTML = "";
-        startLiveFeed();
-    };
 
     // ── PUBLISH ───────────────────────────────────────────────────────────
     document.getElementById('mainBtn').onclick = async () => {
@@ -815,15 +710,14 @@
         btn.textContent = 'Uploading...';
 
         try {
-            let imageUrl = imageUrlInput.value.trim() || null;
-
             await addDoc(collection(db, "requests"), {
-                name: user.displayName,
-                email: user.email,
-                photo: user.photoURL || '',
-                text: content,
-                imageUrl: imageUrl,
-                likes: 0,
+                uid:       user.uid,
+                name:      user.displayName,
+                email:     user.email,
+                photo:     user.photoURL || '',
+                text:      content,
+                imageUrl:  imageUrlInput.value.trim() || null,
+                likes:     0,
                 timestamp: serverTimestamp()
             });
 
@@ -831,32 +725,94 @@
             imageUrlInput.value = '';
             imagePreview.style.display = 'none';
         } catch (e) {
-            alert("Ошибка безопасности! Проверьте правила (Rules) в Firebase.\n" + e.message);
+            alert("Ошибка! Проверьте правила Firebase.\n" + e.message);
         }
 
         btn.disabled = false;
         btn.textContent = '↑ Publish to cloud';
     };
 
-    // ── FEED ──────────────────────────────────────────────────────────────
+    // ── LIKE / DELETE ─────────────────────────────────────────────────────
+    window.processLike = async (id) => {
+        try { await updateDoc(doc(db, "requests", id), { likes: increment(1) }); }
+        catch (e) { console.error("Like error:", e.message); }
+    };
+
+    window.deleteEntry = async (id) => {
+        if (!confirm("Delete this entry?")) return;
+        try { await deleteDoc(doc(db, "requests", id)); }
+        catch (e) { alert("Delete failed: " + e.message); }
+    };
+
+    // ── DM FROM POST ──────────────────────────────────────────────────────
+    window.openDmWithUser = (peerUid, peerName, peerPhoto) => {
+        const user = auth.currentUser;
+        if (!user) return alert("Войдите в аккаунт, чтобы написать сообщение.");
+        if (peerUid === user.uid) return alert("You can't DM yourself.");
+
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector('[data-tab="dms"]').classList.add('active');
+        document.querySelectorAll('.tab-section').forEach(sec => {
+            sec.classList.toggle('hidden', sec.id !== 'tab-dms');
+        });
+
+        openChat(peerUid, peerName, avatarUrl(peerName, peerPhoto));
+    };
+
+    // ── SEARCH ────────────────────────────────────────────────────────────
+    document.getElementById('searchBtn').onclick = async () => {
+        const term = document.getElementById('searchInput').value.trim();
+        if (!term) return;
+
+        isSearchMode = true;
+        const feed = document.getElementById('feed');
+        feed.innerHTML = `<div class="empty">Searching...</div>`;
+
+        try {
+            const q = query(
+                collection(db, "requests"),
+                where("name", "==", term),
+                orderBy("timestamp", "desc")
+            );
+            const snapshot = await getDocs(q);
+
+            document.getElementById('searchNotice').innerHTML =
+                `<span class="dot"></span> ${snapshot.size} result${snapshot.size !== 1 ? 's' : ''} for "<b>${term}</b>"`;
+            feed.innerHTML = "";
+
+            if (snapshot.empty) {
+                feed.innerHTML = `<div class="empty">No entries found for "${term}"</div>`;
+                return;
+            }
+            snapshot.forEach(d => renderPost(feed, d.id, d.data()));
+        } catch (e) {
+            feed.innerHTML = `<div class="empty">Query error: ${e.message}</div>`;
+        }
+    };
+
+    document.getElementById('clearSearchBtn').onclick = () => {
+        isSearchMode = false;
+        document.getElementById('searchInput').value      = "";
+        document.getElementById('searchNotice').innerHTML = "";
+        startLiveFeed();
+    };
+
+    // ── RENDER POST ───────────────────────────────────────────────────────
     function renderPost(container, id, data) {
         const div = document.createElement('div');
         div.className = 'post';
 
-        const avatarSrc = data.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name || '?')}&background=5b6af0&color=fff`;
-        const timeStr   = data.timestamp?.toDate().toLocaleTimeString() || '...';
-        const textHtml  = data.text ? `<div class="post-text">${escapeHtml(data.text)}</div>` : '';
-        const imageHtml = data.imageUrl
-            ? `<img class="post-image" src="${data.imageUrl}" alt="attached image" loading="lazy">`
-            : '';
-
-        const dmAction = data.uid !== auth.currentUser?.uid
+        const avatar   = avatarUrl(data.name, data.photo);
+        const timeStr  = data.timestamp?.toDate().toLocaleTimeString() || '...';
+        const textHtml = data.text ? `<div class="post-text">${escapeHtml(data.text)}</div>` : '';
+        const imgHtml  = data.imageUrl ? `<img class="post-image" src="${data.imageUrl}" alt="image" loading="lazy">` : '';
+        const dmHtml   = (data.uid && data.uid !== auth.currentUser?.uid)
             ? `<button class="dm-btn" onclick="openDmWithUser('${data.uid}','${escapeHtml(data.name)}','${escapeHtml(data.photo || '')}')">✉ DM</button>`
             : '';
 
         div.innerHTML = `
             <div class="post-header">
-                <img class="post-avatar" src="${avatarSrc}" alt="avatar">
+                <img class="post-avatar" src="${avatar}" alt="avatar">
                 <div class="post-header-info">
                     <div class="post-name">${escapeHtml(data.name || '—')}</div>
                     <div class="post-email">${escapeHtml(data.email || '—')}</div>
@@ -864,24 +820,17 @@
                 <span class="post-time">${timeStr}</span>
             </div>
             ${textHtml}
-            ${imageHtml}
+            ${imgHtml}
             <div class="post-actions">
                 <button class="like-btn" onclick="processLike('${id}')">👍 ${data.likes || 0}</button>
-                ${dmAction}
+                ${dmHtml}
                 <button class="delete-btn" onclick="deleteEntry('${id}')">✕ delete</button>
             </div>
         `;
         container.appendChild(div);
     }
 
-    function escapeHtml(str) {
-        return String(str)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;');
-    }
-
+    // ── LIVE FEED ─────────────────────────────────────────────────────────
     let isSearchMode = false;
     let unsubscribe  = null;
 
@@ -906,33 +855,45 @@
     //  DM SYSTEM
     // ─────────────────────────────────────────────────────────────────────
 
-    let convUnsub      = null;   // real-time listener for conversation list
-    let msgUnsub       = null;   // real-time listener for messages in open chat
-    let activeChatId   = null;   // currently open conversation ID
+    let convUnsub      = null;
+    let msgUnsub       = null;
+    let activeChatId   = null;
     let activePeerUid  = null;
+    let activePeerName  = null;
+    let activePeerPhoto = null;
 
-    // Build a deterministic conversation ID from two UIDs
-    function convId(uid1, uid2) {
-        return [uid1, uid2].sort().join('_');
+    // ── Ensure conversation doc exists (called before every send) ─────────
+    async function ensureConversation(cid, myUser, peerUid, peerName, peerPhoto) {
+        const convRef  = doc(db, "conversations", cid);
+        const convSnap = await getDoc(convRef);
+
+        if (!convSnap.exists()) {
+            let resolvedName  = peerName;
+            let resolvedPhoto = peerPhoto;
+            try {
+                const peerDoc = await getDoc(doc(db, "users", peerUid));
+                if (peerDoc.exists()) {
+                    resolvedName  = peerDoc.data().name  || peerName;
+                    resolvedPhoto = peerDoc.data().photo || peerPhoto;
+                }
+            } catch(_) {}
+
+            await setDoc(convRef, {
+                participants:  [myUser.uid, peerUid],
+                peerInfo: {
+                    [myUser.uid]: { name: myUser.displayName, photo: myUser.photoURL || '' },
+                    [peerUid]:    { name: resolvedName,       photo: resolvedPhoto || '' }
+                },
+                lastMessage:   '',
+                lastMessageAt: serverTimestamp(),
+                unreadCount:   { [myUser.uid]: 0, [peerUid]: 0 }
+            });
+        }
+
+        return convRef;
     }
 
-    // ── Open DM from a post's DM button ──
-    window.openDmWithUser = async (peerUid, peerName, peerPhoto) => {
-        const user = auth.currentUser;
-        if (!user) return alert("Войдите в аккаунт, чтобы написать сообщение.");
-        if (peerUid === user.uid) return alert("You can't DM yourself.");
-
-        // Switch to DMs tab
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector('[data-tab="dms"]').classList.add('active');
-        document.querySelectorAll('.tab-section').forEach(sec => {
-            sec.classList.toggle('hidden', sec.id !== 'tab-dms');
-        });
-
-        openChat(peerUid, peerName, peerPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(peerName)}&background=5b6af0&color=fff`);
-    };
-
-    // ── Conversation list listener ──
+    // ── Conversation list listener ────────────────────────────────────────
     function startConversationListener(uid) {
         if (convUnsub) convUnsub();
         const q = query(
@@ -959,9 +920,8 @@
         snap.forEach(d => {
             const data    = d.data();
             const peerUid = data.participants.find(p => p !== myUid);
-            const peers   = data.peerInfo || {};
-            const peer    = peers[peerUid] || {};
-            const avatar  = peer.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(peer.name || '?')}&background=5b6af0&color=fff`;
+            const peer    = (data.peerInfo || {})[peerUid] || {};
+            const avatar  = avatarUrl(peer.name, peer.photo);
             const timeStr = data.lastMessageAt?.toDate().toLocaleTimeString() || '';
             const unread  = (data.unreadCount || {})[myUid] || 0;
 
@@ -983,53 +943,38 @@
         });
     }
 
-    // ── Open a specific chat ──
+    // ── Open a chat ───────────────────────────────────────────────────────
     async function openChat(peerUid, peerName, peerPhoto, cid) {
         const user = auth.currentUser;
         if (!user) return;
 
         cid = cid || convId(user.uid, peerUid);
-        activeChatId  = cid;
-        activePeerUid = peerUid;
+        activeChatId    = cid;
+        activePeerUid   = peerUid;
+        activePeerName  = peerName;
+        activePeerPhoto = peerPhoto;
 
-        // Show chat view, hide list
-        document.getElementById('dmListPanel').style.display  = 'none';
+        document.getElementById('dmListPanel').style.display = 'none';
         document.getElementById('dmChatView').classList.add('open');
-
-        document.getElementById('chatPeerAvatar').src = peerPhoto;
+        document.getElementById('chatPeerAvatar').src       = peerPhoto;
         document.getElementById('chatPeerName').textContent = peerName;
+        document.getElementById('chatMessages').innerHTML   = `<div class="dm-empty">Loading...</div>`;
 
-        // Ensure conversation doc exists
-        const convRef = doc(db, "conversations", cid);
-        const convSnap = await getDoc(convRef);
-        if (!convSnap.exists()) {
-            // Fetch peer info from users collection
-            let peerData = { name: peerName, photo: peerPhoto };
-            try {
-                const peerDoc = await getDoc(doc(db, "users", peerUid));
-                if (peerDoc.exists()) peerData = peerDoc.data();
-            } catch(e) {
-                console.error("CONV CREATE FAILED:", e.code, e.message, e);
-            }
-
-            let myData = { name: user.displayName, photo: user.photoURL || '' };
-
-            await setDoc(convRef, {
-                participants: [user.uid, peerUid],
-                peerInfo: {
-                    [user.uid]:  { name: myData.name,   photo: myData.photo },
-                    [peerUid]:   { name: peerData.name,  photo: peerData.photo || peerPhoto }
-                },
-                lastMessage: '',
-                lastMessageAt: serverTimestamp(),
-                unreadCount: { [user.uid]: 0, [peerUid]: 0 }
-            });
+        // Ensure conv doc exists before anything else
+        try {
+            await ensureConversation(cid, user, peerUid, peerName, peerPhoto);
+        } catch(e) {
+            console.error("CONV CREATE FAILED:", e.code, e.message);
         }
 
-        // Reset unread for me
+        // Reset my unread count
         try {
-            await updateDoc(convRef, { [`unreadCount.${user.uid}`]: 0 });
-        } catch(_) {}
+            await updateDoc(doc(db, "conversations", cid), {
+                [`unreadCount.${user.uid}`]: 0
+            });
+        } catch(e) {
+            console.warn("UNREAD RESET FAILED:", e.message);
+        }
 
         // Listen to messages
         if (msgUnsub) msgUnsub();
@@ -1037,7 +982,9 @@
             collection(db, "conversations", cid, "messages"),
             orderBy("timestamp", "asc")
         );
-        msgUnsub = onSnapshot(msgQ, (snap) => renderMessages(snap, user.uid));
+        msgUnsub = onSnapshot(msgQ, (snap) => renderMessages(snap, user.uid), (err) => {
+            console.error("MSG LISTENER:", err.message);
+        });
     }
 
     function renderMessages(snap, myUid) {
@@ -1056,88 +1003,73 @@
 
             const bubble = document.createElement('div');
             bubble.className = `msg-bubble ${isMine ? 'mine' : 'theirs'}`;
-            bubble.innerHTML = `
-                ${escapeHtml(data.text)}
-                <div class="msg-meta">${time}</div>
-            `;
+            bubble.innerHTML = `${escapeHtml(data.text)}<div class="msg-meta">${time}</div>`;
             container.appendChild(bubble);
         });
 
         container.scrollTop = container.scrollHeight;
     }
 
-    // ── Send a DM ──
+    // ── Send DM ───────────────────────────────────────────────────────────
     document.getElementById('sendDmBtn').onclick = sendDm;
     document.getElementById('dmInput').addEventListener('keydown', e => {
         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendDm(); }
     });
 
     async function sendDm() {
-    const user = auth.currentUser;
-    if (!user || !activeChatId) return;
+        const user = auth.currentUser;
+        if (!user || !activeChatId) return;
 
-    const input = document.getElementById('dmInput');
-    const text  = input.value.trim();
-    if (!text) return;
+        const input = document.getElementById('dmInput');
+        const text  = input.value.trim();
+        if (!text) return;
 
-    input.value = '';
+        input.value = '';
 
-    const convRef = doc(db, "conversations", activeChatId);
+        try {
+            // Always guarantee the conversation doc exists before writing
+            const convRef = await ensureConversation(
+                activeChatId, user, activePeerUid, activePeerName, activePeerPhoto
+            );
 
-    try {
-        // ✅ Always ensure the conversation doc exists first
-        const convSnap = await getDoc(convRef);
-        if (!convSnap.exists()) {
-            const peerDoc = await getDoc(doc(db, "users", activePeerUid));
-            const peerData = peerDoc.exists() ? peerDoc.data() : { name: 'Unknown', photo: '' };
-            await setDoc(convRef, {
-                participants: [user.uid, activePeerUid],
-                peerInfo: {
-                    [user.uid]:      { name: user.displayName, photo: user.photoURL || '' },
-                    [activePeerUid]: { name: peerData.name,    photo: peerData.photo || '' }
-                },
-                lastMessage: '',
-                lastMessageAt: serverTimestamp(),
-                unreadCount: { [user.uid]: 0, [activePeerUid]: 0 }
+            await addDoc(collection(db, "conversations", activeChatId, "messages"), {
+                text,
+                senderUid:  user.uid,
+                senderName: user.displayName,
+                timestamp:  serverTimestamp()
             });
+
+            await updateDoc(convRef, {
+                lastMessage:   text,
+                lastMessageAt: serverTimestamp(),
+                [`unreadCount.${activePeerUid}`]: increment(1)
+            });
+
+        } catch (e) {
+            console.error("SEND FAILED:", e.code, e.message, e);
+            alert("Send failed: " + e.message);
+            input.value = text; // restore so user doesn't lose their message
         }
-
-        // ✅ Now safe to add the message
-        await addDoc(collection(db, "conversations", activeChatId, "messages"), {
-            text,
-            senderUid:   user.uid,
-            senderName:  user.displayName,
-            timestamp:   serverTimestamp()
-        });
-
-        await updateDoc(convRef, {
-            lastMessage:   text,
-            lastMessageAt: serverTimestamp(),
-            [`unreadCount.${activePeerUid}`]: increment(1)
-        });
-
-    } catch (e) {
-        console.error("SEND FAILED:", e.code, e.message, e);
-        alert("Send failed: " + e.message);
     }
-}
 
-    // ── Back button ──
+    // ── Back button ───────────────────────────────────────────────────────
     document.getElementById('chatBackBtn').onclick = () => {
         if (msgUnsub) { msgUnsub(); msgUnsub = null; }
-        activeChatId  = null;
-        activePeerUid = null;
+        activeChatId    = null;
+        activePeerUid   = null;
+        activePeerName  = null;
+        activePeerPhoto = null;
         document.getElementById('dmChatView').classList.remove('open');
         document.getElementById('dmListPanel').style.display = 'block';
     };
 
-    // ── New DM modal ──
+    // ── New DM modal ──────────────────────────────────────────────────────
     document.getElementById('newDmBtn').onclick = async () => {
         const user = auth.currentUser;
         if (!user) return alert("Войдите в аккаунт!");
 
-        const modal    = document.getElementById('dmModal');
-        const listEl   = document.getElementById('modalUserList');
+        const modal  = document.getElementById('dmModal');
+        const listEl = document.getElementById('modalUserList');
         modal.classList.add('open');
         listEl.innerHTML = `<div class="dm-empty">Loading...</div>`;
 
@@ -1150,8 +1082,8 @@
                 const u = d.data();
                 if (u.uid === user.uid) return;
                 count++;
-                const avatar = u.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(u.name || '?')}&background=5b6af0&color=fff`;
-                const item = document.createElement('div');
+                const avatar = avatarUrl(u.name, u.photo);
+                const item   = document.createElement('div');
                 item.className = 'modal-user-item';
                 item.innerHTML = `
                     <img class="modal-user-avatar" src="${avatar}" alt="">
